@@ -1,0 +1,13 @@
+body {
+  background: #fbfbfb;
+}
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.app-container {
+  height: 95vh;
+  width: 600px;
+}

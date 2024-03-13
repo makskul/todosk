@@ -15,3 +15,18 @@ export const showLengthError = () : ActionType => ({
 export const clearError = (): ActionType => ({
   type: Types.clearError
 })
+
+export const itemToggle = (index: number) : ActionType => ({
+  type: Types.itemToggle,
+  payload: index
+})
+
+export const setFilter = (filter: string) : ActionType => ({
+  type: Types.setFilter,
+  payload: filter
+})
+
+export const countTasks = (filter: string) : ActionType => ({
+  type: Types.countTasks,
+  payload: filter
+})

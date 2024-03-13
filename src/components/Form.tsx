@@ -1,7 +1,7 @@
-import { add, showLengthError, clearError } from '../redux/actions.ts'
+import {add, showLengthError, clearError, countTasks} from '../redux/actions.ts'
 import { connect } from 'react-redux'
 
-function Form({ add, showLengthError, clearError, error }): JSX.Element {
+function Form({ add, countTasks, showLengthError, clearError, error }): JSX.Element {
   let inputValue: string = ''
 
   function handleSubmit(e): void {
@@ -17,6 +17,7 @@ function Form({ add, showLengthError, clearError, error }): JSX.Element {
     if (task && task.length > 6 && task.length < 64) {
       if (error) { clearError() }
       add(task)
+      countTasks()
     } else {
       showLengthError()
     }
@@ -49,7 +50,8 @@ const mapStateToProps = (state: any): { error: string } => ({
 const mapDispatchToProps = {
   add,
   showLengthError,
-  clearError
+  clearError,
+  countTasks
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Form)

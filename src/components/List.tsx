@@ -1,18 +1,24 @@
 import { connect } from 'react-redux'
+import {AppState, Item} from '../types/Types.ts'
+import ListItem from './ListItem.tsx'
 
-function List ({ items }): JSX.Element {
+interface PropsType {
+  items: Array<Item>
+}
+
+function List ({ items }: PropsType): JSX.Element {
   return (
     <>
-      <div>
-        {items.map((item, index) =>
-          <li key={index}>{item.txt}</li>
+      <ul className="list-none">
+        {items.map((item: Item, index: number) =>
+          <ListItem data={item} index={index} />
         )}
-      </div>
+      </ul>
     </>
   )
 }
 
-const mapStateToProps = (state: any): {items: string} => ({
+const mapStateToProps = (state: AppState): PropsType => ({
   items: state.items
 })
 

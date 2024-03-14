@@ -21,8 +21,7 @@ function Form({ add, countTasks, showLengthError, clearError, error }: PropsType
     // Read the form data
     const form = e.currentTarget
     const formData = new FormData(form)
-    const task = formData.get('task')
-
+    const task: string = formData.get('task') as string
 
     if (task && task.length > 6 && task.length < 64) {
       if (error) { clearError() }
@@ -65,4 +64,6 @@ const mapDispatchToProps = {
   countTasks
 }
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error
 export default connect(mapStateToProps, mapDispatchToProps)(Form)

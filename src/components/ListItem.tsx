@@ -1,8 +1,16 @@
 import { connect } from 'react-redux'
 import { itemToggle, countTasks } from '../redux/actions.ts'
+import { Item } from '../types/Types.ts'
 
-function ListItem ({ data, index, itemToggle, countTasks }): JSX.Element {
-  function clickHandler(index): void {
+interface PropsType {
+  data: Item
+  index: number
+  itemToggle: (index: number) => void
+  countTasks: () => void
+}
+
+function ListItem ({ data, index, itemToggle, countTasks }: PropsType): JSX.Element {
+  function clickHandler(index: number): void {
     itemToggle(index)
     countTasks()
   }
@@ -25,4 +33,6 @@ const mapDispatchToProps = {
   countTasks
 }
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error
 export default connect(null, mapDispatchToProps)(ListItem)

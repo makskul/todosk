@@ -33,9 +33,9 @@ const todoReducer = (state= initialState, action: ActionType): AppState => {
     case Types.addNew:
       return { ...state, items: [...state.items, { txt: action.payload, status: false, show: true } ] }
     case Types.lengthError:
-      return { ...state, error: action.payload}
+      return { ...state, error: action.payload as string}
     case Types.clearError:
-      return { ...state, error: null}
+      return { ...state, error: ''}
     case Types.itemToggle:
       return {
         ...state,

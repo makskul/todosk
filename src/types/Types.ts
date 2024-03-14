@@ -29,5 +29,5 @@ export interface AppState {
   countCurrent: number
   countCompleted: number
   filter: string
-  error: string | number
+  error: string
 }
